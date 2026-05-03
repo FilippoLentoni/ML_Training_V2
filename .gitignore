@@ -1,0 +1,12 @@
+node_modules/
+cdk.out/
+dist/
+*.js
+*.d.ts
+*.js.map
+.DS_Store
+.env
+.cdk.staging/
+cdk-outputs.json
+__pycache__/
+*.pyc
