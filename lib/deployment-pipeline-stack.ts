@@ -23,6 +23,13 @@ export class DeploymentPipelineStack extends Stack {
         input: pipelines.CodePipelineSource.connection(sourceRepo, sourceBranch, {
           connectionArn: sourceConnectionArn,
         }),
+        env: {
+          SOURCE_REPO: sourceRepo,
+          SOURCE_BRANCH: sourceBranch,
+          CODESTAR_CONNECTION_ARN: sourceConnectionArn,
+          CDK_DEFAULT_ACCOUNT: Stack.of(this).account,
+          CDK_DEFAULT_REGION: Stack.of(this).region,
+        },
         commands: ['npm ci', 'npm test', 'npm run synth'],
       }),
     });
